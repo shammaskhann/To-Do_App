@@ -17,6 +17,8 @@ class MyApp extends StatelessWidget {
             labelMedium: TextStyle(color: Colors.amber, fontWeight: FontWeight.bold, fontSize: 30, fontFamily: 'Nike'),
             headlineSmall: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20, fontFamily: 'Nike'),
             titleSmall: TextStyle(color: Colors.black, fontWeight: FontWeight.normal , fontSize: 15 , fontFamily: 'Nike'),
+            titleMedium: TextStyle(color: Colors.black, fontWeight: FontWeight.normal , fontSize: 20 , fontFamily: 'Nike'),
+            labelSmall: TextStyle(color: Colors.amber, fontWeight: FontWeight.normal , fontSize: 15 , fontFamily: 'Nike'),
           ),
         ),
      home: SplashScreen(),

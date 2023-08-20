@@ -2,57 +2,34 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class taskServices {
-List allTask = [];
-List completedTask = [];
-final taskHeadingController = TextEditingController();
-final taskDescriptionController = TextEditingController();
- addTask(BuildContext context){
-   showDialog(
-     barrierDismissible: true,
-       context: context,
-       builder:(BuildContext context){
-         return AlertDialog(
-           title: Center(child: Text('ADD NEW TASK',style: Theme.of(context).textTheme.titleSmall,)),
-           content: Column(
-             mainAxisSize: MainAxisSize.min,
-             crossAxisAlignment: CrossAxisAlignment.start,
-             children: [
-              const Text('Enter Task Name',style: TextStyle(color: Colors.amberAccent, fontSize: 15, fontFamily: 'Nike'),),
-               TextField(
-                 controller: taskHeadingController,
-                 decoration: const InputDecoration(
-                   hintText: "Task Heading Here..",
-                   //prefixIcon: Icon(Icons.edit_document)
-                   suffixIcon: Icon(Icons.edit_document),
-                 ),
-               ),
-               SizedBox(
-                 height: 10,
-                 width: MediaQuery.of(context).size.width,
-               ),
-               const Text('Enter Task Description',style: TextStyle(color: Colors.amberAccent, fontSize: 15, fontFamily: 'Nike'),),
-               TextField(
-                 controller: taskHeadingController,
-                 decoration: const InputDecoration(
-                   hintText: "Task Description Here..",
-                   //prefixIcon: Icon(Icons.edit_document)
-                   suffixIcon: Icon(Icons.edit_document),
-                 ),
-               ),
-               const SizedBox(
-                 height: 10,
-               ),
-               ElevatedButton(
-                   onPressed:(){
+  List allTask = [
+    {'Head': "Heading 1 Test", 'subtitle': "subtitle Test"},{'Head': "Heading 1 Test", 'subtitle': "subtitle Test"}
+];
+  DateTime date=DateTime.now();
+  List completedTask = [
+    {'Head':'Complted task Test',
+      'subtitle':'subtitle test here',
+      'date':'21/8/23',}
+  ];
+  List getAllTask() {
+    return allTask;
+  }
 
-               }, child: const Center(
-                   child: Text('ADD TASK' , style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold,))
-                 )
-               )
-             ],
-           ),
-         );
-       },
-       );
- }
+  removeTask(BuildContext context, index) {
+    allTask.removeAt(index);
+  }
+
+  editTask(index, String heading, String subtitle) {
+    allTask[index]['Head'] = heading;
+    allTask[index]['subtitle'] = subtitle;
+  }
+  completeTask(index){
+    String datTime ="${date.day}/${date.month}/${date.year}";
+    Map completed={
+      'Head':allTask[index]['Head'],
+      'subtitle':allTask[index]['subtitle'],
+      'date':datTime,
+    };
+    completedTask.add(completed);
+  }
 }
