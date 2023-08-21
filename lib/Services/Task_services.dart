@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class taskServices {
+class taskServices{
   List allTask = [
-    {'Head': "Heading 1 Test", 'subtitle': "subtitle Test"},{'Head': "Heading 1 Test", 'subtitle': "subtitle Test"}
+    {'Head': "Task 1", 'subtitle': "Task 1 Description"},{'Head': "Task 2", 'subtitle': "Task 2 Description"}
 ];
+  List importantTask =[];
   DateTime date=DateTime.now();
   List completedTask = [
-    {'Head':'Complted task Test',
-      'subtitle':'subtitle test here',
-      'date':'21/8/23',}
+    // {'Head':'Complted task Test',
+    //   'subtitle':'subtitle test here',
+    //   'date':'21/8/23',}
   ];
   List getAllTask() {
     return allTask;
@@ -18,7 +19,6 @@ class taskServices {
   removeTask(BuildContext context, index) {
     allTask.removeAt(index);
   }
-
   editTask(index, String heading, String subtitle) {
     allTask[index]['Head'] = heading;
     allTask[index]['subtitle'] = subtitle;
@@ -30,6 +30,10 @@ class taskServices {
       'subtitle':allTask[index]['subtitle'],
       'date':datTime,
     };
+    allTask.removeAt(index);
     completedTask.add(completed);
+  }
+  removeCompleteTask(index){
+    completedTask.removeAt(index);
   }
 }
