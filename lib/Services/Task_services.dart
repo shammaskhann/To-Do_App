@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../Widgets/toastMessage.dart';
+
 class taskServices{
   List allTask = [
     {'Head': "Task 1", 'subtitle': "Task 1 Description"},{'Head': "Task 2", 'subtitle': "Task 2 Description"}
@@ -18,6 +20,7 @@ class taskServices{
 
   removeTask(BuildContext context, index) {
     allTask.removeAt(index);
+    toastmessage().toastMessage("TASK DELETED SUCCESSFULLY");
   }
   editTask(index, String heading, String subtitle) {
     allTask[index]['Head'] = heading;
